@@ -34,42 +34,30 @@ The detection process involves several key steps:
 To run this project, follow these steps:
 
 1. **Clone the Repository**: Clone the repository to your local machine.
-2. **Create Virtual Environment**: Create and activate a virtual environment to isolate dependencies.
+2. **To Enable Scripts**: paste following command into the powershell and  hit enter after that type "A" and hit enter  **only for windows users**
+
+    ```bash
+    Set-ExecutionPolicy RemoteSigned
+    ```
+
+3. **Create Virtual Environment**: Create and activate a virtual environment to isolate dependencies.
    
     ```bash
     python3 -m venv venv
-    source venv/bin/activate
+    source venv/bin/activate # for Mac/linux Users
+    venv\Scripts\activate # For Windows users 
     ```
    
-3. **Install Dependencies**: Install the required libraries listed in the `requirements.txt` file.
+4. **Install Dependencies**: Install the required libraries listed in the `requirements.txt` file.
    
     ```bash
     pip install -r requirements.txt
     ```
    
-4. **Run the Script**: Execute the `main.py` script to detect hand signs in images or videos.
+5. **Run the Script**: Execute the `main.py` script to detect hand signs in images or videos.
    
     ```bash
     python main.py
-    ```
-
-## Installation
-
-To install the necessary dependencies, follow these steps:
-
-1. **Clone the Repository**: Clone the repository to your local machine.
-
-2. **Create Virtual Environment**: Create and activate a virtual environment to isolate dependencies.
-
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-
-3. **Install Dependencies**: Install the required libraries listed in the `requirements.txt` file.
-
-    ```bash
-    pip install -r requirements.txt
     ```
 
 ## Deployment
