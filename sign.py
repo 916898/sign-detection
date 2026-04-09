@@ -5,30 +5,30 @@ import time
 
 avg_predictions = []
 
-# Load the trained model
+
 model = load_model('smnist.h5')
 
-# Function to preprocess the input image or frame from video
+
 def preprocess_input(input_data):
-    # Convert to grayscale
+    
     gray = cv2.cvtColor(input_data, cv2.COLOR_BGR2GRAY)
-    # Resize the image to 28x28 (size used in training)
+   
     resized = cv2.resize(gray, (28, 28))
-    # Reshape to match the input shape of the model
+    
     processed_data = resized.reshape(1, 28, 28, 1)
-    # Normalize the data
+   
     processed_data = processed_data / 255.0
     return processed_data
 
-# Function to detect hand sign
+
 def detect_hand_sign(input_data):
-    # Preprocess the input data
+  
     processed_data = preprocess_input(input_data)
-    # Predict the class of the hand sign
+    
     prediction = model.predict(processed_data)
-    # Get the index of the class with the highest probability
+   y
     predicted_class = np.argmax(prediction)
-    # Return the predicted class label
+    
     return predicted_class
 
 # Function to draw predicted class label on the image
@@ -75,16 +75,9 @@ def process_input(input_data):
         cv2.imshow('Hand Sign Detection', output_data)
         cv2.waitKey(0)
 
-# Example usage for image input
-input_image = 'test/e.jpg'  # Replace with the path to your image
+input_image = 'test/e.jpg'  
 process_input(input_image)
 
-# Example usage for video input
-# input_video = 'your_video.mp4'  # Replace with the path to your video
-
-# process_input(input_video)
-
-# Calculate the most frequent prediction (mode) over all frames
 if avg_predictions:
     mode_prediction = max(set(avg_predictions), key=avg_predictions.count)
     print("Most frequent prediction:", mode_prediction)
